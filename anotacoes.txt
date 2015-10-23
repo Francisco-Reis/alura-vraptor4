@@ -1,0 +1,7 @@
+========= VRAPTOR 4 =========
+
+Nova versão do framework MVC da Caelum
+O projeto de exemplos utiliza o MAVEN
+
+Para Controllers, anotar:
+@Controller
