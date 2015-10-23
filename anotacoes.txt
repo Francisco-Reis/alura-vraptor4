@@ -5,3 +5,7 @@ O projeto de exemplos utiliza o MAVEN
 
 Para Controllers, anotar:
 @Controller
+
+@Path
+usando o Path, pose-se passar tanto GEt quanto POST para o método.
+É possivel tambem substituir o Path com @Get ou @Post seguido do caminho
