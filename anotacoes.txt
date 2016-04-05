@@ -1,7 +1,12 @@
-========= VRAPTOR 4 =========
+ ========= VRAPTOR 4 =========
 
 Nova versão do framework MVC da Caelum
 O projeto de exemplos utiliza o MAVEN
+
+----- IMPORTANDO PROJETO -----
+Importar para o Eclipse utilizando a opção: 'Import->Existing Maven Project'
+Entrar em Properties -> Targeted Runtimes, escolher o Tomcat
+------------------------------
 
 Para Controllers, anotar:
 @Controller
@@ -9,3 +14,36 @@ Para Controllers, anotar:
 @Path
 usando o Path, pose-se passar tanto GEt quanto POST para o método.
 É possivel tambem substituir o Path com @Get ou @Post seguido do caminho
+
+@Path("/")
+Esse será a raiz do nosso projeto
+
+----------- Convenções do VRAPTOR -----------
+O Vraptor busca sempre um jsp com o nome do metodo, em uma pasta com o mesmo nome do controller,
+sem o sufixo Controller.
+Ex: Dado o seguinte controller
+@Controller
+public class ProdutoController {
+	@Path("/")
+	public void inicio(){
+}
+}
+O Vraptor buscará o seguinte jsp: /webapp/WEB-INF/jsp/produto/inicio.jsp
+----------------------------------------------
+
+Mudar o fluxo padrão da Request:
+Incluir o atributo Result na classe com anottation @Inject no construtor.
+No metodo, chamar o metodo result.forwardTo(this)... ou result.reditectTo(this)
+forwardTo: pode reenviar o formulario
+redirectTo: nao reenvia formulario, limpa os dados dele (melhor opção)
+result.include() inclui objetos no ResultSet
+
+================ Problema Tomcat x Eclipse: ============
+Selecionar aba Servers na mesma seçã ode Console (abaixo)
+Botão direito em Tomcat - Properties
+Na guia General, clicar em Swith Location
+Duplo clique em Tomcat
+Na seção Server Locations, escolher 'Use Tomcat installation (takes control of Tomcat installation)'
+========================================================
+
+CDI: especificação do JavaEE que diz respeito a injeção de dependências
